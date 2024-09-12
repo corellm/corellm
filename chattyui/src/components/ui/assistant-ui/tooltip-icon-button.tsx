@@ -2,13 +2,13 @@
 
 import { forwardRef } from "react";
 
+import { Button, ButtonProps } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Button, ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export type TooltipIconButtonProps = ButtonProps & {
@@ -28,11 +28,11 @@ export const TooltipIconButton = forwardRef<
             variant="ghost"
             size="icon"
             {...rest}
-            className={cn("size-6 p-1", className)}
+            className={cn("stb-size-6 stb-p-1", className)}
             ref={ref}
           >
             {children}
-            <span className="sr-only">{tooltip}</span>
+            <span className="stb-sr-only">{tooltip}</span>
           </Button>
         </TooltipTrigger>
         <TooltipContent side={side}>{tooltip}</TooltipContent>

@@ -5,16 +5,16 @@ import {
   MessagePrimitive,
   ThreadPrimitive,
 } from "@assistant-ui/react";
-import type { FC } from "react";
 import { SendHorizontalIcon } from "lucide-react";
+import type { FC } from "react";
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { TooltipIconButton } from "@/components/ui/assistant-ui/tooltip-icon-button";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export const MyThread: FC = () => {
   return (
-    <ThreadPrimitive.Root className="bg-background h-full">
-      <ThreadPrimitive.Viewport className="flex h-full flex-col items-center overflow-y-scroll scroll-smooth bg-inherit px-4 pt-8">
+    <ThreadPrimitive.Root className="stb-h-full stb-bg-white dark:stb-bg-neutral-950">
+      <ThreadPrimitive.Viewport className="stb-flex stb-h-full stb-flex-col stb-items-center stb-overflow-y-scroll stb-scroll-smooth stb-bg-inherit stb-px-4 stb-pt-8">
         <MyThreadWelcome />
 
         <ThreadPrimitive.Messages
@@ -24,7 +24,7 @@ export const MyThread: FC = () => {
           }}
         />
 
-        <div className="sticky bottom-0 mt-4 flex w-full max-w-2xl flex-grow flex-col items-center justify-end rounded-t-lg bg-inherit pb-4">
+        <div className="stb-sticky stb-bottom-0 stb-mt-4 stb-flex stb-w-full stb-max-w-2xl stb-flex-grow stb-flex-col stb-items-center stb-justify-end stb-rounded-t-lg stb-bg-inherit stb-pb-4">
           <MyComposer />
         </div>
       </ThreadPrimitive.Viewport>
@@ -37,11 +37,11 @@ const MyThreadWelcome: FC = () => {
   const greeting = globalThis.stb?.greeting || "How can I help you today?";
   return (
     <ThreadPrimitive.Empty>
-      <div className="flex flex-grow basis-full flex-col items-center justify-center">
+      <div className="stb-flex stb-flex-grow stb-basis-full stb-flex-col stb-items-center stb-justify-center">
         <Avatar>
           <AvatarFallback>C</AvatarFallback>
         </Avatar>
-        <p className="mt-4 font-medium">{greeting}</p>
+        <p className="stb-mt-4 stb-font-medium">{greeting}</p>
       </div>
     </ThreadPrimitive.Empty>
   );
@@ -49,18 +49,18 @@ const MyThreadWelcome: FC = () => {
 
 const MyComposer: FC = () => {
   return (
-    <ComposerPrimitive.Root className="focus-within:border-aui-ring/20 flex w-full items-end rounded-lg border px-2.5 shadow-sm transition-colors ease-in">
+    <ComposerPrimitive.Root className="focus-within:stb-border-aui-ring/20 stb-flex stb-w-full stb-items-end stb-rounded-lg stb-border stb-border-neutral-200 stb-px-2.5 stb-shadow-sm stb-transition-colors stb-ease-in dark:stb-border-neutral-800">
       <ComposerPrimitive.Input
         autoFocus
         placeholder="Write a message..."
         rows={1}
-        className="placeholder:text-muted-foreground size-full max-h-40 resize-none border-none bg-transparent p-4 pr-12 text-sm outline-none focus:ring-0"
+        className="stb-size-full stb-max-h-40 stb-resize-none stb-border-none stb-bg-transparent stb-p-4 stb-pr-12 stb-text-sm stb-outline-none placeholder:stb-text-neutral-500 focus:stb-ring-0 disabled:stb-cursor-not-allowed dark:placeholder:stb-text-neutral-400"
       />
       <ComposerPrimitive.Send asChild>
         <TooltipIconButton
           tooltip="Send"
           variant="default"
-          className="my-2.5 size-8 p-2 transition-opacity ease-in"
+          className="stb-my-2.5 stb-size-8 stb-p-2 stb-transition-opacity stb-ease-in"
         >
           <SendHorizontalIcon />
         </TooltipIconButton>
@@ -71,8 +71,8 @@ const MyComposer: FC = () => {
 
 const MyUserMessage: FC = () => {
   return (
-    <MessagePrimitive.Root className="grid w-full max-w-2xl auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] gap-y-2 py-4">
-      <div className="bg-muted text-foreground col-start-2 row-start-1 max-w-xl break-words rounded-3xl px-5 py-2.5">
+    <MessagePrimitive.Root className="stb-grid stb-w-full stb-max-w-2xl stb-auto-rows-auto stb-grid-cols-[minmax(72px,1fr)_auto] stb-gap-y-2 stb-py-4">
+      <div className="stb-col-start-2 stb-row-start-1 stb-max-w-xl stb-break-words stb-rounded-3xl stb-bg-neutral-100 stb-px-5 stb-py-2.5 stb-text-neutral-950 dark:stb-bg-neutral-800 dark:stb-text-neutral-50">
         <MessagePrimitive.Content />
       </div>
     </MessagePrimitive.Root>
@@ -81,12 +81,12 @@ const MyUserMessage: FC = () => {
 
 const MyAssistantMessage: FC = () => {
   return (
-    <MessagePrimitive.Root className="relative grid w-full max-w-2xl grid-cols-[auto_1fr] grid-rows-[auto_1fr] py-4">
-      <Avatar className="col-start-1 row-span-full row-start-1 mr-4">
+    <MessagePrimitive.Root className="stb-relative stb-grid stb-w-full stb-max-w-2xl stb-grid-cols-[auto_1fr] stb-grid-rows-[auto_1fr] stb-py-4">
+      <Avatar className="stb-col-start-1 stb-row-span-full stb-row-start-1 stb-mr-4">
         <AvatarFallback>A</AvatarFallback>
       </Avatar>
 
-      <div className="text-foreground col-start-2 row-start-1 my-1.5 max-w-xl break-words leading-7">
+      <div className="stb-col-start-2 stb-row-start-1 stb-my-1.5 stb-max-w-xl stb-break-words stb-leading-7 stb-text-neutral-950 dark:stb-text-neutral-50">
         <MessagePrimitive.Content />
       </div>
     </MessagePrimitive.Root>

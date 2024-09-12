@@ -8,5 +8,5 @@ document.body.appendChild(document.createElement("div")).id = "stb-root";
 createRoot(document.getElementById("stb-root")!).render(
   <StrictMode>
     <App />
-  </StrictMode>
+  </StrictMode>,
 );

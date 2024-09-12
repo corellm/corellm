@@ -2,8 +2,8 @@
 
 import { BotIcon, ChevronDownIcon } from "lucide-react";
 
-import { type FC, forwardRef } from "react";
 import { AssistantModalPrimitive } from "@assistant-ui/react";
+import { type FC, forwardRef } from "react";
 
 import { MyThread } from "@/components/ui/assistant-ui/thread";
 import { TooltipIconButton } from "@/components/ui/assistant-ui/tooltip-icon-button";
@@ -11,14 +11,14 @@ import { TooltipIconButton } from "@/components/ui/assistant-ui/tooltip-icon-but
 export const MyAssistantModal: FC = () => {
   return (
     <AssistantModalPrimitive.Root>
-      <AssistantModalPrimitive.Anchor className="fixed bottom-4 right-4 size-11">
+      <AssistantModalPrimitive.Anchor className="stb-fixed stb-bottom-4 stb-right-4 stb-size-11">
         <AssistantModalPrimitive.Trigger asChild>
           <FloatingAssistantButton />
         </AssistantModalPrimitive.Trigger>
       </AssistantModalPrimitive.Anchor>
       <AssistantModalPrimitive.Content
         sideOffset={16}
-        className="bg-popover text-popover-foreground data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out data-[state=open]:zoom-in data-[state=open]:slide-in-from-bottom-1/2 data-[state=open]:slide-in-from-right-1/2 data-[state=closed]:slide-out-to-bottom-1/2 data-[state=closed]:slide-out-to-right-1/2 z-50 h-[500px] w-[400px] overflow-clip rounded-xl border p-0 shadow-md outline-none [&>div]:bg-inherit"
+        className="stb-z-50 stb-h-[500px] stb-w-[400px] stb-overflow-clip stb-rounded-xl stb-border stb-border-neutral-200 stb-bg-white stb-p-0 stb-text-neutral-950 stb-shadow-md stb-outline-none data-[state=open]:stb-animate-in data-[state=closed]:stb-animate-out data-[state=closed]:stb-fade-out-0 data-[state=open]:stb-fade-in-0 data-[state=closed]:stb-zoom-out data-[state=open]:stb-zoom-in data-[state=closed]:stb-slide-out-to-bottom-1/2 data-[state=closed]:stb-slide-out-to-right-1/2 data-[state=open]:stb-slide-in-from-bottom-1/2 data-[state=open]:stb-slide-in-from-right-1/2 dark:stb-border-neutral-800 dark:stb-bg-neutral-950 dark:stb-text-neutral-50 [&>div]:stb-bg-inherit"
       >
         <MyThread />
       </AssistantModalPrimitive.Content>
@@ -40,19 +40,19 @@ const FloatingAssistantButton = forwardRef<
       tooltip={tooltip}
       side="left"
       {...rest}
-      className="size-full rounded-full shadow transition-transform hover:scale-110 active:scale-90"
+      className="stb-size-full stb-rounded-full stb-shadow stb-transition-transform hover:stb-scale-110 active:stb-scale-90"
       ref={ref}
     >
       <BotIcon
         data-state={state}
-        className="absolute size-6 transition-all data-[state=closed]:rotate-0 data-[state=open]:rotate-90 data-[state=closed]:scale-100 data-[state=open]:scale-0"
+        className="stb-absolute stb-size-6 stb-transition-all data-[state=closed]:stb-rotate-0 data-[state=open]:stb-rotate-90 data-[state=closed]:stb-scale-100 data-[state=open]:stb-scale-0"
       />
 
       <ChevronDownIcon
         data-state={state}
-        className="absolute size-6 transition-all data-[state=closed]:-rotate-90 data-[state=open]:rotate-0 data-[state=closed]:scale-0 data-[state=open]:scale-100"
+        className="stb-absolute stb-size-6 stb-transition-all data-[state=closed]:stb--rotate-90 data-[state=open]:stb-rotate-0 data-[state=closed]:stb-scale-0 data-[state=open]:stb-scale-100"
       />
-      <span className="sr-only">{tooltip}</span>
+      <span className="stb-sr-only">{tooltip}</span>
     </TooltipIconButton>
   );
 });
