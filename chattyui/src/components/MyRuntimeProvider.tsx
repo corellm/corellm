@@ -9,7 +9,7 @@ export function MyRuntimeProvider({
 }>) {
   const runtime = useEdgeRuntime({
     // @ts-expect-error - globalThis is not defined in the type definitions
-    api: globalThis.stb?.chatApi || "https://localhost:3000/api/chat",
+    api: globalThis.stb?.api?.chat || "https://localhost:3000/api/chat",
   });
 
   return (

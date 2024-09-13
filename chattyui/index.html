@@ -4,14 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ACME Corp</title>
-  </head>
-  <body>
     <script>
-      globalThis.stb = {
-        greeting: "Greetings! (change to your own)",
-        chatApi: "http://localhost:3000/api/chat",
+      window.stb = {
+        text: {
+          greeting: "How can I help you today?",
+          botAvatarFallback: "Ch",
+        },
+        image: {
+          botAvatar: "https://avatar.iran.liara.run/public/job/operator/female",
+        },
+        api: {
+          chat: "http://localhost:3000/api/chat",
+        },
       };
     </script>
     <script type="module" src="/src/main.tsx"></script>
-  </body>
+  </head>
+  <body></body>
 </html>

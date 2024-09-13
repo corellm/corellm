@@ -9,7 +9,7 @@ import { SendHorizontalIcon } from "lucide-react";
 import type { FC } from "react";
 
 import { TooltipIconButton } from "@/components/ui/assistant-ui/tooltip-icon-button";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const MyThread: FC = () => {
   return (
@@ -33,13 +33,16 @@ export const MyThread: FC = () => {
 };
 
 const MyThreadWelcome: FC = () => {
-  // @ts-expect-error - globalThis is not defined in the type definitions
-  const greeting = globalThis.stb?.greeting || "How can I help you today?";
+  const greeting = window.stb?.text?.greeting || "How can I help you today?";
+  const botAvatar = window.stb?.image?.botAvatar;
+  const botAvatarFallback = window.stb?.text?.botAvatarFallback || "Ch";
+
   return (
     <ThreadPrimitive.Empty>
       <div className="stb-flex stb-flex-grow stb-basis-full stb-flex-col stb-items-center stb-justify-center">
         <Avatar>
-          <AvatarFallback>C</AvatarFallback>
+          {botAvatar ? <AvatarImage src={botAvatar} /> : null}
+          <AvatarFallback>{botAvatarFallback}</AvatarFallback>
         </Avatar>
         <p className="stb-mt-4 stb-font-medium">{greeting}</p>
       </div>
@@ -80,10 +83,14 @@ const MyUserMessage: FC = () => {
 };
 
 const MyAssistantMessage: FC = () => {
+  const botAvatar = window.stb?.image?.botAvatar;
+  const botAvatarFallback = window.stb?.text?.botAvatarFallback || "Ch";
+
   return (
     <MessagePrimitive.Root className="stb-relative stb-grid stb-w-full stb-max-w-2xl stb-grid-cols-[auto_1fr] stb-grid-rows-[auto_1fr] stb-py-4">
       <Avatar className="stb-col-start-1 stb-row-span-full stb-row-start-1 stb-mr-4">
-        <AvatarFallback>A</AvatarFallback>
+        {botAvatar ? <AvatarImage src={botAvatar} /> : null}
+        <AvatarFallback>{botAvatarFallback}</AvatarFallback>
       </Avatar>
 
       <div className="stb-col-start-2 stb-row-start-1 stb-my-1.5 stb-max-w-xl stb-break-words stb-leading-7 stb-text-neutral-950 dark:stb-text-neutral-50">
